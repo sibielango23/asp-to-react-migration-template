@@ -14,7 +14,11 @@ Describe endpoints/pages under test.
 - [ ] Negative/error path coverage
 - [ ] Parity checks with legacy ASP
 
+## Required Inputs
+- PR link:
+- Legacy ASP references:
+- Test data / accounts:
+
 ## Exit Criteria
 - [ ] No critical defects
 - [ ] Sign-off recorded
-

@@ -6,6 +6,8 @@
 
 This repository serves as the **planning hub and execution framework** for migrating a 20-year-old Classic ASP admin application (100+ pages, multiple modules, MSSQL databases) to a modern tech stack.
 
+For a single-page developer onboarding guide, open [`PROJECT_GUIDE.html`](PROJECT_GUIDE.html).
+
 **Current State:**
 - Platform: Classic ASP (VBScript)
 - Scale: 100+ pages across multiple modules
@@ -54,6 +56,7 @@ Read: [`docs/COPILOT_AGENT_SETUP.md`](docs/COPILOT_AGENT_SETUP.md)
 - Dev Agent instructions
 - QA Agent instructions
 - Credit budget planning
+- Repo issue templates/workflows already scaffolded under [`.github/`](.github/)
 
 ---
 

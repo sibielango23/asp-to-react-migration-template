@@ -12,8 +12,16 @@ Define module goals and business value.
 ## Dependencies
 List module and data dependencies.
 
+## Scope
+- In-scope pages:
+- Out-of-scope pages:
+
+## Acceptance Criteria
+- [ ] Functional parity criteria documented
+- [ ] API contract expectations documented
+- [ ] Rollback plan documented
+
 ## Deliverables
 - [ ] Dev task created
 - [ ] QA task created
 - [ ] Timeline and risks documented
-

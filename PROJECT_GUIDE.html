@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASP to React Migration - Developer Guide</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #2563eb;
+        --border: #e2e8f0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+      header {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb);
+        color: #fff;
+        padding: 2rem 1rem;
+      }
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      h1, h2, h3 {
+        line-height: 1.25;
+      }
+      h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      .subtitle {
+        margin-top: 0.5rem;
+        opacity: 0.95;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.2rem;
+        margin: 1rem 0;
+      }
+      code, pre {
+        font-family: Consolas, "Courier New", monospace;
+      }
+      pre {
+        background: #0b1220;
+        color: #e2e8f0;
+        padding: 0.9rem;
+        border-radius: 8px;
+        overflow-x: auto;
+      }
+      .grid {
+        display: grid;
+        gap: 1rem;
+      }
+      @media (min-width: 900px) {
+        .grid-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .tag {
+        display: inline-block;
+        background: #dbeafe;
+        color: #1e3a8a;
+        border-radius: 999px;
+        padding: 0.15rem 0.6rem;
+        font-size: 0.84rem;
+        margin-right: 0.35rem;
+        margin-bottom: 0.35rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        text-align: left;
+        border: 1px solid var(--border);
+        padding: 0.55rem;
+        vertical-align: top;
+      }
+      th {
+        background: #f1f5f9;
+      }
+      .small {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .ok {
+        color: #166534;
+        font-weight: 600;
+      }
+      .warn {
+        color: #92400e;
+        font-weight: 600;
+      }
+      footer {
+        color: var(--muted);
+        text-align: center;
+        padding: 1.5rem 1rem 2rem;
+      }
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>ASP to React Migration Template</h1>
+        <p class="subtitle">
+          A practical starter framework to migrate large Classic ASP applications to a modern React + Web API stack using a PM -> Dev -> QA multi-agent workflow.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section>
+        <h2>1) What this project is</h2>
+        <p>
+          This repository is a <strong>migration framework</strong>. It gives your team structure, starter code, documentation, and workflow automation to convert legacy Classic ASP modules safely and incrementally.
+        </p>
+        <p>
+          It is <strong>not</strong> a one-click ASP converter. You still migrate module by module, validate parity, and release in stages.
+        </p>
+        <div>
+          <span class="tag">Planning docs</span>
+          <span class="tag">React starter</span>
+          <span class="tag">Express API starter</span>
+          <span class="tag">GitHub issue templates</span>
+          <span class="tag">Workflow automation</span>
+        </div>
+      </section>
+
+      <section class="grid grid-2">
+        <div>
+          <h2>2) Target architecture</h2>
+          <ul>
+            <li><strong>Frontend:</strong> React + TypeScript</li>
+            <li><strong>Backend:</strong> Node.js + Express (can be adapted to ASP.NET Core)</li>
+            <li><strong>Database:</strong> MSSQL with modernized schema and migration mapping</li>
+            <li><strong>Process:</strong> PM -> Dev -> QA cycle per module</li>
+          </ul>
+        </div>
+        <div>
+          <h2>3) Repository map</h2>
+          <ul>
+            <li><code>docs/</code> migration strategy, setup, workflow, patterns</li>
+            <li><code>frontend/</code> React starter + tests</li>
+            <li><code>backend/</code> Express starter + tests</li>
+            <li><code>migration/LEGACY_ASP_SAMPLES/</code> sample legacy references</li>
+            <li><code>.github/</code> issue templates + workflows + PR template</li>
+            <li><code>tools/bootstrap-labels.ps1</code> bootstrap required labels</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>4) Multi-agent model</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Agent</th>
+              <th>Primary responsibility</th>
+              <th>Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PM Agent</strong></td>
+              <td>Scope module, define acceptance criteria, risks, dependencies</td>
+              <td><code>[PM]</code> planning issue + linked DEV/QA tasks</td>
+            </tr>
+            <tr>
+              <td><strong>Dev Agent</strong></td>
+              <td>Implement React UI + API + tests with parity notes</td>
+              <td><code>[DEV]</code> issue + pull request</td>
+            </tr>
+            <tr>
+              <td><strong>QA Agent</strong></td>
+              <td>Validate parity versus legacy ASP and regression scenarios</td>
+              <td><code>[QA]</code> issue + sign-off/defect report</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>5) How to configure multi-agent workflow</h2>
+        <ol>
+          <li>Push this repository to GitHub.</li>
+          <li>Enable <strong>Issues</strong>, <strong>Pull Requests</strong>, and <strong>GitHub Actions</strong>.</li>
+          <li>Enable GitHub Copilot for your org/repo.</li>
+          <li>Create required labels:
+            <pre>pm-task
+dev-task
+qa-task
+needs-triage</pre>
+          </li>
+          <li>
+            Optional shortcut with GitHub CLI:
+            <pre>.\tools\bootstrap-labels.ps1 -Owner &lt;org-or-user&gt; -Repo &lt;repo-name&gt;</pre>
+          </li>
+          <li>Use title prefixes in issues:
+            <pre>[PM] ...
+[DEV] ...
+[QA] ...</pre>
+          </li>
+          <li>
+            Workflow <code>.github/workflows/auto-label-assign.yml</code> auto-labels issues based on title prefix.
+          </li>
+          <li>
+            Configure branch protection on <code>main</code> (or <code>master</code>) and require status check:
+            <pre>Dev PR Checks</pre>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>6) Day-1 execution flow</h2>
+        <ol>
+          <li>Fill <code>docs/MODULE_INVENTORY.md</code> with real ASP pages and dependencies.</li>
+          <li>Create one pilot <code>[PM]</code> issue for Authentication module.</li>
+          <li>Create linked <code>[DEV]</code> issue and implement endpoints + UI.</li>
+          <li>Open PR using the repository PR template.</li>
+          <li>Create linked <code>[QA]</code> issue and execute parity tests.</li>
+          <li>Merge only after QA sign-off.</li>
+        </ol>
+      </section>
+
+      <section class="grid grid-2">
+        <div>
+          <h2>7) Local setup commands</h2>
+          <p class="small">
+            Requires Node.js 20+, npm 10+, and Git.
+          </p>
+          <pre># Frontend
+cd frontend
+npm install
+npm run build
+npm test
+
+# Backend
+cd ..\backend
+npm install
+npm run build
+npm test</pre>
+        </div>
+        <div>
+          <h2>8) Validation checklist</h2>
+          <ul>
+            <li class="ok">Issue templates available for PM/DEV/QA</li>
+            <li class="ok">Label auto-routing workflow configured</li>
+            <li class="ok">PR template enforces traceability</li>
+            <li class="ok">Frontend and backend starter code present</li>
+            <li class="warn">Install Node.js and Git locally to run full checks/commits</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>9) Key files to read next</h2>
+        <ul>
+          <li><a href="README.md">README.md</a></li>
+          <li><a href="docs/MIGRATION_STRATEGY.md">docs/MIGRATION_STRATEGY.md</a></li>
+          <li><a href="docs/COPILOT_AGENT_SETUP.md">docs/COPILOT_AGENT_SETUP.md</a></li>
+          <li><a href="docs/WORKFLOW.md">docs/WORKFLOW.md</a></li>
+          <li><a href=".github/workflows/dev-pr-checks.yml">.github/workflows/dev-pr-checks.yml</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      This page is intended as a single onboarding reference for developers joining the migration project.
+    </footer>
+  </body>
+</html>
+
