@@ -1,0 +1,28 @@
+name: Auto Label Assign
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add default labels by title prefix
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.issue.title || "";
+            const labels = [];
+            if (title.startsWith("[DEV]")) labels.push("dev-task");
+            if (title.startsWith("[QA]")) labels.push("qa-task");
+            if (title.startsWith("[PM]")) labels.push("pm-task");
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                labels
+              });
+            }
+
